@@ -105,6 +105,39 @@
           }
         }
       }
+    },
+    "storybook": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": ".",
+      "sourceRoot": ".",
+      "prefix": "storybook",
+      "architect": {
+        "serve": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "sb:build:development",
+            "staticDir": [],
+            "compodoc": false
+          }
+        },
+        "build": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "sb:build:development",
+            "staticDir": [],
+            "outputDir": "dist/storybook",
+            "compodoc": false
+          },
+          "configurations": {
+            "stag": {}
+          }
+        }
+      }
     }
   },
   "defaultProject": "sb"
